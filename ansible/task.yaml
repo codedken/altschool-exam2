@@ -9,6 +9,17 @@
       update_cache: yes
       upgrade: yes
 
+  - name: cron job to check uptime of the server every 12am
+    cron:
+      name: A cron job to check uptime of the server every 12am
+      minute: "0"
+      hour: "0"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      job: "/usr/bin/uptime > /var/log/uptime_check.log 2>&1"
+      state: present
+
   - name: copy the bash script to slave machine
     copy:
       src: slave-script.sh
