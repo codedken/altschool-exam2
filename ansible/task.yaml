@@ -1,0 +1,24 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: update & upgrade server
+    apt:
+      update_cache: yes
+      upgrade: yes
+
+  - name: copy the bash script to slave machine
+    copy:
+      src: slave-script.sh
+      dest: ~/
+      owner: root
+      group: root
+      mode: 0744
+
+  - name: Set Execute Permissions on the Script 
+    command: chmod +x ~/slave-script.sh 
+
+  - name: Run Bash Script
+    command: bash slave-script.sh codedken godsown2029 altschool < /dev/null
