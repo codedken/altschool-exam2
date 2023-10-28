@@ -11,19 +11,19 @@ DATABASE_NAME=$3
 echo "Installation of LAMP stack started...."
 sleep 10
 
-apt-get install apache2 -y </dev/null
+apt-get install apache2 -y < /dev/null
 
-apt-get install mysql-server -y </dev/null
+apt-get install mysql-server -y < /dev/null
 
-add-apt-repository -y ppa:ondrej/php </dev/null
+add-apt-repository -y ppa:ondrej/php < /dev/null
 
-apt-get update </dev/null
+apt-get update < /dev/null
 
 apt-get install libapache2-mod-php php php-common php-xml php-mysql php-gd php-mbstring php-tokenizer php-json php-bcmath php-curl php-zip unzip -y
 
 sed -i "s/cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/8.2/apache2/php.ini
 
-systemctl restart apache2 </dev/null
+systemctl restart apache2 < /dev/null
 
 echo "Installation of LAMP stack completed successfully +++"
 sleep 10
@@ -49,9 +49,9 @@ curl -sS https://getcomposer.org/installer | php
 
 mv composer.phar /usr/local/bin/composer
 
-composer --version </dev/null
+composer --version < /dev/null
 
-composer install --no-dev </dev/null
+composer install --no-dev < /dev/null
 
 cp .env.example .env
 
@@ -72,7 +72,7 @@ touch /etc/apache2/sites-available/laravel.conf
 
 chmod 777 /etc/apache2/sites-available/laravel.conf
 
-cat <<EOF >/etc/apache2/sites-available/laravel.conf
+cat <<EOF > /etc/apache2/sites-available/laravel.conf
 <VirtualHost *:80>
     ServerAdmin cbsmoothoj@gmail.com
     ServerName 192.168.33.11

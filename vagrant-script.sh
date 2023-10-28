@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
 
     # Master Server
     config.vm.define "master" do |master|
-        master.vm.box = "ubuntu/trusty64"
+        master.vm.box = "ubuntu/focal64"
         master.vm.network "private_network", ip: "192.168.33.11"
         master.vm.hostname = "master"
 
