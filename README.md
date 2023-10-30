@@ -47,9 +47,10 @@ Master Machine IP: ```192.168.33.11```
 
 * A good PC
 * Code editor (vscode is cool)
+* Virtual Box hypervisor
 * Good Internet network connection
 * A basic understanding of git is recommended
-* ... and a good attitude
+* ... and a great attitude of patience
 
 #### Technologies used
 
@@ -83,7 +84,7 @@ Congratulations.. You have successfully deployed a PHP (Laravel) application on 
 
 5. You can test if the ssh key is working by typing ```ssh root@192.168.33.10``` This should take you to the slave machine from the master machine. Type ```logout``` to go back to the master machine.
 
-6. To run the ansible script, ```cd ansible``` and run this command ```ansible-playbook -i inventory task.yaml```
+6. To run the ansible script, ```cd ansible``` and run this command ```ansible-playbook -i inventory task.yaml --ask-vault-pass``` enter champion as the password
 
 7. If it runs successfully, you will be able to test it by typing the ip address of the slave node ```192.168.33.10``` on a browser and you will see the Laravel home page appear.
 
