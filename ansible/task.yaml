@@ -2,6 +2,8 @@
 
 - hosts: all
   become: true
+  vars_files:
+    - user-details.yaml
   pre_tasks:
 
   - name: update & upgrade server
@@ -32,4 +34,4 @@
     command: chmod +x ~/slave-script.sh 
 
   - name: Run Bash Script
-    command: bash slave-script.sh codedken godsown2029 altschool < /dev/null
+    command: bash slave-script.sh {{ username }} {{ passwd }} {{ dbname }} < /dev/null
